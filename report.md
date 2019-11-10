@@ -80,6 +80,6 @@ After tweaking the parameters, below are the parameters for which I got best res
 
 ![](https://github.com/twishasaraiya/P2-continuous-control/blob/master/assets/hyperparameters.png)
 
-### Environment Solved
+### Result
 
-![]()
+![](https://github.com/twishasaraiya/P2-continuous-control/blob/master/assets/rewards_plot.png)
