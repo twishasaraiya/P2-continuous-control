@@ -83,3 +83,9 @@ After tweaking the parameters, below are the parameters for which I got best res
 ### Result
 
 ![](https://github.com/twishasaraiya/P2-continuous-control/blob/master/assets/rewards_plot.png)
+
+## Future work
+
+This project was one of most difficult and time consuming I have worked on. 
+
+Implement **Trust Region Policy Optimization (TRPO)** , **Truncated Natural Policy Gradient (TNPG)** should achieve better performance. Explore the recent **Distributed Distributional Deterministic Policy Gradients (D4PG)** algorithm as another method for adapting DDPG for continuous control.
