@@ -65,7 +65,17 @@ The environment is considered solved, when the average (over 100 episodes) of th
     ```python
     conda create -n [env name] python=3.6
     ```
-4. Download the zip file
+4. Download the zip file and extract the files in folder of your choice
+5. Activate the environment
+```python
+conda activate [env name]
+```
+6. cd into the folder `cd folder_name/` and start jupyter notebook
+```
+(env_name)$cd folder_name
+(env_name)folder_name$ jupyter notebook
+```
+7. Follow the instructions in `Continuous_Control.ipynb` to train your own agent
 
 ## Environment
 
