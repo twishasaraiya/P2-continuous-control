@@ -16,7 +16,37 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 ![DDPG Algorithm](https://github.com/twishasaraiya/P2-continuous-control/blob/master/assets/ddpg.png)
 
-## Network Architecture
+As in DQN, replay buffer is used here as well. The actor and critic are updated by sampling a minibatch uniformly from the buffer. Because DDPG is an off-policy algorithm, the replay buffer can be large, allowing the algorithm to benefit from learning across a set of uncorrelated transitions. Here replay buffer of size `1e6` is used
+
+
+Based on Attempt 4 of benchmark implementation
+
+> instead of updating the actor and critic networks 20 times at every timestep, we amended the code to update the networks 10 times after every 20 timesteps.
+
+
+```python
+LEARN_EVERY = 20        # learning timestep interval
+LEARN_NUM   = 10        # number of learning passes
+```
+
+## Approach
+
+Initially I started with version 1 environment, but the agent learning was very slow and the max score never went above 1. Even after playing with hyperparameters I couldnt get the agent to learn faster. I wasted a lot of gpu hours because of that. 
+
+So I decided to switch to version and started anew. The agent training much more better than version 1. Based on the tips provided by  Alessandro Restagno(DRLND mentor) in our slack community, I made two modifications
+
+1. Add gradient clipping to prevent exploding gradient
+```python
+    torch.nn.utils.clip_grad_norm_(self.critic_local.parameters(), GRAD_CLIPPING)
+```
+
+2. Add batch normalization
+
+Add 1 layer of batch normalization 
+```python
+x = F.relu(self.bn1(self.fc1(state)))
+```
+### Network Architecture
 
 state_size = 33 
 action_size = 4
@@ -41,13 +71,15 @@ action_size = 4
 5. relu
 6. Linear(300,1)
 
-## Hyperparameters
+### Hyperparameters
 
 The baseline hyperparameters are taken from [CONTINUOUS CONTROL WITH DEEP REINFORCEMENT
 LEARNING](https://arxiv.org/pdf/1509.02971.pdf)
 
+After tweaking the parameters, below are the parameters for which I got best result
+
 ![](https://github.com/twishasaraiya/P2-continuous-control/blob/master/assets/hyperparameters.png)
 
-## Environment Solved
+### Environment Solved
 
-![](https://github.com/twishasaraiya/P2-continuous-control/blob/master/assets/environment_solved.png)
+![]()
