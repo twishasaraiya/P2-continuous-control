@@ -43,6 +43,9 @@ action_size = 4
 
 ## Hyperparameters
 
+The baseline hyperparameters are taken from [CONTINUOUS CONTROL WITH DEEP REINFORCEMENT
+LEARNING](https://arxiv.org/pdf/1509.02971.pdf)
+
 ![](https://github.com/twishasaraiya/P2-continuous-control/blob/master/assets/hyperparameters.png)
 
 ## Environment Solved
